@@ -1,0 +1,37 @@
+﻿
+
+@using (Html.BeginForm("GetRPMDtl", "Upload", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form"}))
+{   
+    <div class="row">    
+
+        <section class="col-md-offset-1">
+            <div class="form-group">
+            
+                <div class="col-md-4">                 
+                    @Html.DropDownList("RPMUPTO", new List<SelectListItem>{
+                    new SelectListItem{ Text="2", Value = "2" },
+                     new SelectListItem{ Text="3", Value = "3" },
+                      new SelectListItem{ Text="4", Value = "4" },
+                      new SelectListItem{ Text="5", Value = "5" },
+                      new SelectListItem{ Text="6", Value = "6" },
+                 }, "Select RPM Up to", new { @class = "form-control" })
+                                      
+                </div>
+                <div class="col-md-1">
+                    x
+                </div>
+
+                <div class="col-md-2">               
+
+                    <button id="btnRpmUpto" class="btn-sm btn-info col-md-offset-3">OK</button>
+                </div>
+            </div>
+         
+        </section>
+      
+
+    </div>
+}
+
+
+

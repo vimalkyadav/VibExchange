@@ -1,0 +1,184 @@
+﻿@model IEnumerable<VibExchange.Models.CurrentOpenings>
+
+@{
+    ViewBag.Title = "Career";
+    Layout = "~/Views/Shared/_VibExchangeLayout.cshtml";
+}
+
+<div class="nav navbar">
+    <div class="Jumbotron">
+        <img src="~/Images/career.jpg" class=" img img-responsive" style="min-width: 100%; max-width: 100%;" />
+    </div>
+</div>
+    @*<div class="container">
+            <div class="row-fluid">
+                <legend>Current Openings</legend>
+            </div>
+        </div>*@
+
+<div class="col-md-12" style="background-color:white">
+    <p style="font-size:x-large;color:chocolate;text-align:center;">We Are hirnig</p>
+    <div class="container">
+        <div class="col-sm-4">
+            <h3 style="text-align:center">Job description</h3>
+            <p style="text-align:justify">
+                Our company is seeking to hire skilled Software Developers to help with the development of our current projects (both on cloud as well as on-premise environments). Your duties will primarily revolve around building software by writing code, as well as modifying software to fix errors, adapt it to new requirements, improve its performance, or upgrade interfaces. You will also be involved in directing system testing and validation procedures and will be working in close collaboration with Sales Team. Since most of our projects are cloud-based and customer facing, you will also be interacting with customers on technical issues including web-portal design and features/functionalities being made available on Portals.
+                To be successful in this role, you will need expertise on programming languages, databases and extensive knowledge of the software development life-cycle. A Bachelor's degree in computer science or related degree is required. Both experienced as well as freshers can apply.
+            </p>
+        </div>
+        <div>
+            <div class="col-sm-4">
+                <h3 style="text-align:center">
+                    Responsibilities
+                </h3>
+                <p style="text-align:justify">
+                    As a Software Developer, your Responsibilities will include:<br />
+                    • Modifying software to fix errors, adapt it to cloud/new hardware, improve its performance, or upgrade interfaces.<br />
+                    • Directing system testing and validation procedures.<br />
+                    • Directing software programming and documentation development.<br />
+                    • Consulting with other departments on project status and proposals.<br />
+                    • Working with customers or departments on technical issues including web portal / software system design and maintenance.<br />
+                    • Analysing information to recommend and plan the installation of new systems or modifications of an existing system.<br />
+                    • Consulting with sales staff to evaluate portal-customer, as well as software-hardware interfaces and develop specifications and performance requirements.<br />
+                    • Designing and developing software systems/portals using scientific analysis and mathematical models to predict and measure outcomes and design consequences.<br />
+                    • Preparing reports on programming project specifications, activities, or status.<br />
+                    • Conferring with project managers to obtain information on limitations or capabilities<br />
+                </p>
+            </div>
+            <div>
+                <div class="col-sm-4">
+                    <h3 style="text-align:center">
+                        Requirements
+                    </h3>
+                    <p style="text-align:justify">
+                        • Bachelor's degree in computer science or related degree.<br />
+                        • Knowledge of the software development life-cycle.<br />
+                        • The desire to work in fast-paced environment.<br />
+                        • Ability to develop unit testing of code components or complete applications.<br />
+                        • Creativity is always a plus.<br />
+                        • Must be a full-stack developer and understand concepts of software engineering.<br />
+                        • Experience working on a variety of software development projects.<br />
+                        • Deep programming language knowledge.<br />
+                        • Skills needed in 2 or more of following languages, IDEs, and databases:<br />
+                        a. Dot Net platform and Visual Studio<br />
+                        b. C# and Python Programming languages<br />
+                        c. HTML, ASP.Net, ASP.Net MVC, and scripting languages like Javascript etc.<br />
+                        e. SQL Server and/or MySQL databases.<br />
+                        f. Should be familiar with Networking, and Web communication technologies.<br />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    @using (Html.BeginForm("GetJobs", "Contact", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="container">
+            <p style="font-size:x-large;color:chocolate;text-align:center;">What's your passion?</p>
+            @foreach (var item in Model)
+            {
+                <section style="margin-bottom: 1%">
+                    <div class="row" data-toggle="collapse" data-target="#@Html.DisplayFor(modelItem => item.JobID)" style="max-width: 80%;" id="@Html.DisplayFor(modelItem => item.JobTitle)">
+                        <legend class="img-thumbnail" style="background-color:#a09fee;text-align:center;margin-left:16%">
+                            @Html.DisplayFor(modelItem => item.JobTitle)
+                            @*<p style="font-size: 16px;">
+                                    <b> @Html.DisplayFor(modelItem => item.JobTitle)</b>
+                                </p>*@
+
+                        </legend>
+                    </div>
+                    <div class="collapse" style="max-width:85%;margin-bottom:2%;" id="@Html.DisplayFor(modelItem => item.JobID)">
+                        <p class=" col-md-11">
+                            @Html.DisplayFor(modelItem => item.JobDescription)
+                        </p>
+                        <p class="col-md-8"><strong>Relevant Work Experience:</strong>@Html.DisplayFor(modelItem => item.ExperienceRequired)</p>
+                        <button class=" btn btn-success" data-toggle="modal" data-target="#@Html.DisplayFor(modelItem => item.JobID)@Html.DisplayFor(modelItem => item.JobID)" style="float:right; margin-right:15%;margin-bottom:5%;">Apply Here</button>
+
+                        <!--------- Modal for new application-------------------->
+                        <div id="@Html.DisplayFor(modelItem => item.JobID)@Html.DisplayFor(modelItem => item.JobID)" class="modal fade">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content" style="max-width:70%;">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <b> @Html.DisplayFor(modelItem => item.JobTitle)</b>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <label for="Fname" class="control-label">Full Name</label><br />
+                                            <input class="form-control" type="text" name="Fname" placeholder="Full Name" onblur="this.placehodler='Full Name'" onfocus="this.placeholder=''" required /><br />
+                                            <br />
+                                            <label for="email" class="control-label">Email</label><br />
+                                            <input class="form-control" type="email" name="email" placeholder="Enter your Email" onblur="this.placeholder='Enter your Email'" onfocus="this.placeholder=''" required /><br />
+                                            <br />
+                                            <label for="mobile" class="control-label">Mobile Number</label><br />
+                                            <input class="form-control" name="mobile" placeholder="Enter your mobile number" onblur="this.placeholder='Enter your mobile number'" onfocus="this.placeholder=''" onkeypress="return isNumber(event)" maxlength="10" required /><br />
+                                            <br />
+                                            <div>
+                                                <label class="control-label">Position Applied for :</label>
+                                                <select class="form-control" name="position" required>
+                                                    <option>--select--</option>
+                                                    @foreach (var pos in Model)
+                                                    {
+                                                        <option>@Html.DisplayFor(modelItem => pos.JobTitle)</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                            <br />
+                                            <div>
+                                                <label class="control-label">Experience</label><br />
+                                                <select class="form-control" name="experience" required>
+                                                    <option>--select--</option>
+                                                    <option>0-1 Years</option>
+                                                    <option>1-2 Years</option>
+                                                    <option>2-3 Years</option>
+                                                    <option>3-5 Years</option>
+                                                    <option>5-7 Years</option>
+                                                    <option>7-10 Years</option>
+                                                    <option>10+ Years</option>
+                                                </select>
+                                            </div>
+                                            <br />
+                                            <label class="control-label">Upload Your Resume</label>
+                                            <input type="file" dir="ltr" draggable="true" name="resume" required class="form-control" multiple="single" />
+                                            <center> <button type="submit" class="btn btn-success" id="btnSave" style="margin-top:5px;">Submit Detail</button></center>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>}
+        </div>
+      
+    
+                }
+                <script>
+                    $("btnSubmit").click(function () {
+                        $.ajax({
+                            Url: '',
+                            type: 'Post',
+                            contentType: "application/json; charset=utf-8",
+                            datatype: 'json',
+                            data: "{name:Name, emailid:EmailID, phone:Phone, position: PositionApplied, exp:Experience}",
+                            success: function (result) {
+                                alert(result);
+                            }
+
+                        });
+                    });
+
+                    function isNumber(evt) {
+                        evt = (evt) ? evt : window.event;
+                        var charCode = (evt.which) ? evt.which : evt.keyCode;
+                        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                            return false;
+                        }
+                        return true;
+                    }
+                </script>

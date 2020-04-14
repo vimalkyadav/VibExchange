@@ -1,0 +1,1020 @@
+﻿@model IEnumerable<VibExchange.Models.Slider>
+
+@{
+    ViewBag.Title = "Vibration Analysis Services, Condition Monitoring on VibExchange";
+    Layout = "~/Views/Shared/_VibExchangeLayout.cshtml";
+}
+<style>
+    #body {
+        /*background: url("../Images/y1.jpg");*/
+        /*background-color: white;*/
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .login-box-plain {
+        background: none repeat scroll 0 0 transparent;
+        border: 1px solid #D8D8D8;
+        border-radius: 7px 7px 7px 7px;
+        box-shadow: 0 1px 4px #D3D3D3;
+        margin: 15px auto;
+        padding: 5px 10px 10px;
+        position: relative;
+        min-height: 300px;
+    }
+
+
+    ul.sticky-left-nav-list li.course-tabs-list-item a {
+        padding: 18px 40px 20px 28px;
+        display: block;
+        color: #fff;
+        background: #8fd8f9;
+        border-radius: 0;
+        box-sizing: border-box;
+        white-space: nowrap;
+    }
+
+    .pricing {
+        background: #fff;
+    }
+
+        .pricing .price-section {
+            min-height: 0px;
+            vertical-align: middle;
+            padding: 1em;
+            background: #fff;
+            float: left;
+            margin-bottom: 1.2em;
+        }
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+        display: block;
+    }
+
+    *, :after, :before {
+        box-sizing: border-box;
+    }
+
+    #demo, #Experts {
+        background: black;
+    }
+
+
+    .pricing .price-section .inner-box {
+        background: #caedfd;
+        padding: 1em;
+        margin-bottom: 6.2em;
+        position: relative;
+        top: 2em;
+    }
+
+    .learn-by-app-wrapper {
+        background: #fff;
+        overflow: hidden;
+        padding: 0;
+        border-radius: 3px;
+        min-height: 200px;
+        height: 100%;
+        box-shadow: 0 0 17px 0 rgba(0,0,0,.15);
+    }
+
+    .learn-by-app-wrapper-heading strong {
+        color: #9cc8ff;
+        font-size: 1em;
+        text-transform: uppercase;
+    }
+
+    .learn-by-app-wrapper-heading {
+        background: #3b89ea;
+        padding: 1em 0 .1em 1.1428em;
+    }
+
+    .nav1 {
+        position: absolute;
+        padding-left: 0;
+        margin-top: 0%;
+        list-style: none;
+    }
+
+        .nav1:before,
+        .nav1:after {
+            display: table;
+            content: " ";
+        }
+
+    .btn1-default {
+        color: #8e0000;
+        background-color: #caedfd;
+    }
+
+    .bigintro {
+        font-size: 20px;
+        line-height: 40px;
+        text-align: center;
+        border-bottom: solid 1px black;
+        margin-bottom: 5px;
+        color: cyan;
+        background-color: GrayText;
+    }
+
+    .services {
+        background-color: aliceblue;
+        margin-bottom: 10%;
+        width: 100%;
+        height: 20%;
+        text-align: center;
+        font-family: Verdana;
+        font-weight: 100;
+        font-size: large;
+        text-align-last: center;
+    }
+
+    .noticetab {
+        background: white;
+        position: relative;
+        top: -8px;
+        border-top: 2px double orange;
+        border-bottom: 2px double orange;
+    }
+
+    .noticelable {
+        background: orange;
+        padding: 11px;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+
+    body {
+        margin: 0;
+        height: 2000px;
+    }
+
+    .icon-bar {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+        .icon-bar a {
+            display: block;
+            text-align: center;
+            padding: 16px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 20px;
+        }
+
+            .icon-bar a:hover {
+                background-color: #000;
+            }
+
+    .facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+    .linkedin {
+        background: #007bb5;
+        color: white;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top:0%">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+
+
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/images/kfbg.jpeg" />
+            </div>
+
+            <div class="item">
+                <img src="~/Images/fftbg.JPEG " alt="Chicago">
+            </div>
+
+            <div class="item">
+                <img src="~/Images/v2.JPEG " alt="New York">
+            </div>
+            <div class="item">
+                <img src="~/images/orbitscroll.jpeg" />
+            </div>
+
+
+        </div>
+
+        @*  <div id="t0402_q_send_req_button" class="betxtc"><input type="submit" id="t0402_submit" class="penqbt" value="Submit Requirement" style="background-color : rgb(0, 166, 153)"></div>*@
+        <div class="icon-bar">
+            <a href="https://www.facebook.com/VibrationAnalysisService/" class="facebook"><i class="fa fa-facebook"></i></a>
+
+            <a href="https://www.linkedin.com/company/vibexchange" class="linkedin"><i class="fa fa-linkedin"></i></a>
+        </div>
+    </div>
+
+
+    @*----------------------------------------eeeeeeeeeeeeeeeeeeee---------------------------------------------*@
+    <section style="background-color:#fff">
+        <div class="container">
+            <h2 style="color: black; text-align: center; border-bottom: solid 1px red; font-weight: 500; font-family: Cambria">VibExchange </h2>
+
+            @*<div class="row">
+                <a href="#" class="col-sm-4 col-md-offset-2">
+                    <h2 id="customer" style="color: green; border: none;  color: blue; font-family: sans-serif; " onclick="gotoCustomer()">Analysis Customers</h2>
+                </a>
+
+                <a href="#" class="col-sm-4">
+                    <h2 id="consultant" style="color: green; color: blue; border: none; font-family: sans-serif;  " onclick="gotoConsultant()">Analysis Consultants</h2>
+                </a>
+            </div>*@
+        </div>
+
+    </section>
+
+    <section>
+        <div id="customerSection" class="row" style="margin-left:3%">
+            <div class="row" style="padding-top:2%;">
+                <a id="home" href="#" onclick="gotoHome()" class=" col-md-2 float-left btn btn-danger " style="margin-left: 28px;"> << Close</a>
+            </div>
+            <div class=" col-md-3 login-box-plain " style="margin-right:3%;">
+                <h2 class="bigintro img-rounded" style="border: 1px solid; background-color: #8fd8f9; color: #8e0000; ">WHAT WE DO ?</h2>
+                <hr />
+                <div class=" services img-thumbnail1" style="background-color: #caedfd;">
+                    <a href="@Url.Action("getService", "Services", new { @serviceID = "Centrifugal Pump" }) " style="color: #8e0000;">pump vibration analysis</a>
+                </div>
+                <div class=" services img-thumbnail1" style="background-color: #caedfd;">
+                    <a href="@Url.Action("getService", "Services", new { @serviceID="Fans"})" style="color: #8e0000">Fan Vibration Analysis</a>
+                </div>
+                <div class=" services img-thumbnail1" style="background-color: #caedfd;">
+                    <a href="@Url.Action("getService", "Services", new { @serviceID="Bearings"})" style="color: #8e0000">Bearings Vibration Analysis</a>
+                </div>
+                <div class=" services img-thumbnail1" style="background-color: #caedfd;">
+                    <a href="@Url.Action("getService", "Services", new { @serviceID="Gears"})" style="color: #8e0000">Gears Vibration Analysis</a>
+                </div>
+                <div class="services img-thumbnail1" style="background-color: #caedfd;">
+                    <a href="@Url.Action("getService", "Services", new { @serviceID="Motor Current"})" style="color: #8e0000">Motor Current Signature Analysis</a>
+                </div>
+                <div class=" services img-thumbnail1" style="background-color: #caedfd;">
+                    <a href="@Url.Action("getService", "Services", new { @serviceID="HFD"})" style="color: #8e0000">High Frequency Defects Analysis</a>
+                </div>
+            </div>
+
+            <div class="col-md-3 login-box-plain" style="margin-right:3%;">
+                <h2 class="bigintro img-rounded" style="border: 1px solid; background-color: #8fd8f9; color: #8e0000; ">HOW WE DO ?</h2>
+                <hr />
+                <div class="row-fluid img-thumbnail1" style="background-color: #caedfd; align-items: center;">
+                    <h4 style="color: #8e0000; text-align: right; border-bottom: none; display: inline;">
+                        VibExchange is the world's first automation platform bringing together the best vibration consultants
+                        and technicians from across the World. We are setting up the trend of composite Predictive Maintenance
+                        Services via a marketplace model Riding along a rating and ranking mechanism for service providers.
+                    </h4>
+                    <p>
+                        <h4 style="color: #8e0000;; border-bottom: none; display: inline;">We provide three types of vibration analysis for your machines </h4>
+                    </p>
+                    <div class=" services img-thumbnail1">
+                        @*<a href="@Url.Action("Buy Now", "UploadDownload ", new { id = "ClientDtl" })" style="color: black;">Manual Vibration Analysis </a>*@
+                        <a href="http://www.vibration-service.com/UploadDownload/GetSampleReport/Indicative%20Analysis" style="color: #8e0000;">Manual Vibration Analysis"</a>
+                    </div>
+                    <div class=" services img-thumbnail1">
+                        <a href="javascript:remoteAnalysis()" style="color: #8e0000;">Remote Vibration Analysis</a>
+                    </div>
+
+                    <div class=" services img-thumbnail1">
+                        <a href="@Url.Action("GetConsultant", "Employee", new { id = "Expert Analysis Method" })" style="color: #8e0000;">Vibration Analysis by Expert</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 login-box-plain ">
+                <h2 class="bigintro img-rounded" style="border: 1px solid; background-color: #8fd8f9; color: #8e0000; ">SEND YOUR ENQUIRY</h2>
+                <hr />
+                <div class="img-rounded" style="background-color:white;">
+                    @{
+
+                        Html.RenderAction("getEnquiry", "Order");
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div id="consultantSection" class="row" style="margin-left:5%;margin-right:5%;">
+            <div class="row" style="padding-top:2%;">
+                <a id="home" href="#" onclick="gotoHome()" class=" col-md-2 float-left btn btn-danger " style="margin-left: 28px"> << Close</a>
+            </div>
+            <div class="col-md-3 login-box-plain " style="margin-right:3%;">
+                <h2 class="bigintro img-responsive" style="border: 1px solid; background-color: #8fd8f9; color: #8e0000; ">Tell us your Requirment</h2>
+                <hr />
+                <div class="img-rounded" style="background-color: #caedfd; ">
+                    @{
+                        Html.RenderAction("getExpertQuery", "Order");
+                    }
+                </div>
+            </div>
+            <div class="col-md-3 login-box-plain" style="margin-right:3%;">
+                <h2 class="bigintro img-responsive" style="border: 1px solid; background-color: #8fd8f9; color: #8e0000; ">WHY JOIN US ?</h2>
+                <hr />
+                <div class="row-fluid img-responsive" style="background-color: #caedfd; ">
+                    <h4 style="color: red; border-bottom: none; display: inline; text-decoration: underline; ">VibExchange</h4>
+                    <span style="color: #8e0000">
+                        is the world's first automation platform bringing together the best vibration consultants
+                        and technicians from across the globe.
+                    </span>
+                    <p>
+                        <h5 style="color: red; border-bottom: none; display: inline;text-decoration:underline;font-family:Verdana">Key Features : </h5>
+                    </p>
+                    <p>
+                        <span style="color: #8e0000; ">
+                            <img style="padding-right: 1%;" src="~/Images/steps.png" />
+                            Work from accros the world.
+                        </span>
+                    </p>
+                    <p>
+                        <span style="color: #8e0000; ">
+                            <img style="padding-right: 1%;" src="~/Images/steps.png" />
+                            Get the data for analysis at your choice.
+                        </span>
+                    </p>
+                    <p>
+                        <span style="color: #8e0000; ">
+                            <img style="padding-right: 1%;" src="~/Images/steps.png" />
+                            Buy customer enquiries at very low cost.
+                        </span>
+                    </p>
+                    <p>
+                        <span style="color: #8e0000; ">
+                            <img style="padding-right: 1%;" src="~/Images/steps.png" />
+                            Consulting with other experts.
+                        </span>
+                    </p>
+                    <p>
+                        <span style="color: #8e0000; ">
+                            <img style="padding-right: 1%;" src="~/Images/steps.png" />
+                            Opportunity to expand the area of work.
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class=" col-md-5 login-box-plain">
+                <h2 class="bigintro img-rounded" style="border: 1px solid; background-color: #8fd8f9; color: #8e0000; ">BUY ENQUIRY !</h2>
+                <hr />
+                <div class="row-fluid img-responsive" style="background-color: #caedfd; ">
+                    <marquee behavior="scroll" direction="up" scrollamount="5" onmouseover="this.stop();" onmouseout="this.start();" width="100%" height="500px;">
+                        @{
+                            Html.RenderAction("showEnquiryData", "Order");
+                        }
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container-fluid noticetab">
+            <div class="row">
+                <div class="col-lg-1 noticelable"> WHAT NEXT</div>
+                <div class="col-lg-11 noticedata">
+                    <div id="copyright" class="clear"></div>
+                    <marquee behavior="alternate" scrolldelay="100" scrollamount="3" onmouseover="this.stop();" onmouseout="this.start();">
+                        <p class="fl_left">
+                            <font style="text-shadow: 0 0 1px; color: #23527c; font-size: 18px"> Auto Diagnostic </font><img alt="" src="~/Images/new.jpg" style="width: 33px; height: 17px; color: #23527c; font-size: 18px"><font style="text-shadow: 0 0 1px; color: #23527c; font-size: 18px"> See a demo before you buy Diagnostic</font><img alt="" src="~/Images/new.jpg" style="width:33px;height:16px">
+                            <font style="text-shadow: 0 0 1px; color: #23527c; font-size: 18px">Packages offers for heavy users. </font>
+                        </p>
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="col-md-12" style="background: linear-gradient(to bottom, #FFFDE7 0%, #FFC107);">
+            <div class="container">
+                <div class="jumbotron">
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <img alt="" src="~/Images/Untitled (2).JPEG">
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="balnkspace1"></div>
+                        <h2 class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.1s" style="animation-delay: 0.9s; ">WHO WE ARE <br></h2>
+                        <h3 class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.0.7s" style="width: 650px;"> A COMPLETE SOLUTION FOR MACHINE VIBRATION ANALYSIS</h3>
+                        <p class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.0.5s" style="text-align: justify; width: 650px;font-size:15px;color:black;">
+                            &#9632; Composite predictive maintenance<br />
+                            &#9632; Rating and ranking possibility<br />
+                            &#9632; Solution oriented<br />
+                            &#9632; Timely and cost effective reports customization<br />
+                            &#9632; Online tracking and monitoring via IoT<br />
+                            &#9632; Offline execution
+                        </p>
+                        <div class="col-sm-7">
+                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                <!-- Indicators -->
+                                <!--<ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                </ol>-->
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner custoncar">
+                                    <div class="item active">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">" MisAlignment"</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">"Belt Drive Problems"</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color:red">"Rotor Rub "</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">" Bent Shaft"</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red">" Hydraulic And Aerodynamic forces"</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red">"  Mass Unbalance  "</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">" Mechanical Loseness "</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">" Motor Current Faults. "</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">" Gear Faults "</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red">" Bearings Damages "</h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">" Cavitations "</h4>
+                                    </div>
+                                    <div class="item ">
+                                        <h4 style="font-size: 17px; color: black; text-align: center; color: red;">"  Many others "</h4>
+                                    </div>
+                                </div>
+                                <!-- Left and right controls -->
+                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                                    <span class=" w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10096;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+
+                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                                    <span class=" w3-button w3-black w3-display-right" onclick="plusDivs(-1)"> &#10097;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section style="background-color:#fff">
+    <div class="row">
+        <a href="#" class="col-sm-4 col-md-offset-2">
+            <h1 id="customer" class="btn btn-primary btn-block" style="color: white; font-size:x-large  " onclick="gotoCustomer()">Analysis Customers</h1>
+        </a>
+
+        <a href="#" class="col-sm-4">
+            <h1 id="consultant" class="btn btn-primary btn-block" style="color: white; font-size:x-large  " onclick="gotoConsultant()">Analysis Consultants</h1>
+        </a>
+    </div>
+</section>
+    <section>
+        <div class="col-md-12" style="background: linear-gradient(to bottom,white  0%, white 100%); ">
+            <div class="container">
+                <div class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.s" style="animation-delay: 0.1s;">
+                    <div class="jumbotron">
+                        <h2 style="text-align:center;color:black">WHAT IS IN IT</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="~/Images/875.jpeg" style="width:350px;height:auto">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h3 style="color: black;width:350px;height:auto">For Plants</h3>
+                                <p>
+                                    &#9632; Condition Monitoring of equipment for lower costs<br />
+                                    &#9632; Savings on Vibration analysis services<br />
+                                    &#9632; Just in time to Reduce production loss<br />
+                                    &#9632; Enhancement of life of machine<br />
+                                    &#9632; Improve machine efficieny & ROI for longer life of machines<br />
+                                    @*&#9632; Lower plant operation costs<br />*@
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="col-md-12" style="background: linear-gradient(to bottom,white  0%, white 100%); ">
+            <div class="container">
+                <div class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.s" style="animation-delay: 0.1s;">
+                    <div class="jumbotron">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 style="color: black;width:350px;height:auto"> For Consultants</h3>
+                            <p>
+                                &#9632; Allow analysis of data collected by via Kohtect,IMV,Benstone,SKF & Rockwell instruments <br />
+                                &#9632; Allow analysis of data of UFF,WAV,CSV formats<br />
+                                &#9632; Helps in reducing travels<br />
+                                &#9632; colloboration of clients across geographics<br />
+                                &#9632; Remote as well as onsite projects<br />
+                                &#9632; Opportunity to Pick and choose assignment<br />
+                                &#9632; Compatibilty to Skf, Rockwell & CSi intruments soon.
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="~/images/bottom.JPEG " style="width:350px;height:auto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="col-md-12" style="background: linear-gradient(to bottom, #FFFDE7 0%, #FFC107);">
+            <div class="container">
+                <div class="jumbotron">
+                    <h2 style="text-align:center">HOW WE DO</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img alt="" src="~/Images/indicative .jpeg" title="" style="width:350px">
+                        <h2>Indicative Vibration Analysis</h2>
+                        <p style="text-align: justify; font-size: 14px;width:350px">
+                            &#9632; Facility to upload and store spectrum and UFF,WAV, CSV files here<br />
+                            &#9632; Process image file through analytical algorthim<br />
+                            &#9632; Pictorial difectogram generation<br />
+                            &#9632; Descriptive defect map created<br />
+                            &#9632; For feature overview please click on here
+                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal4">More</button>
+                        </p>
+                        <div class="container">
+
+                            <!-- Trigger the modal with a button -->
+                            @*<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">More</button>*@
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal4" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title" style="background-color:red;color:white">Inclusion</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            &#9632; Likely defects presented<br />
+                                            &#9632; You can download defect files within five days from their deposition<br />
+                                            &#9632; Files as generated are deposited in your inbox & information is sent via email
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" style="background-color:red;color:white">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/UploadDownload/ClientDtl" class="btn btn-primary ">BUY NOW</a>
+                        @* <a style="margin-left:20px;margin-bottom:20px;color:blue;" id="btnUploadManual1" class="btn btn-default"> @Html.ActionLink("Buy Now", "ClientDtl", "UploadDownload")</a>*@
+                    </div>
+
+                    <div class="col-sm-6 ">
+                        <img alt="" class="Why vibexchange?" src="~/Images/by vibexchange.JPEG " style="width:350px;height:auto">
+                        <h2>Analytical Vibration Analysis </h2>
+                        <p style="text-align: justify; font-size: 14px;width:350px">
+                            &#9632;Facility to upload and store your spectrum and UFF,WAV, CSV files here<br />
+                            &#9632; You have to file data require for machine type<br />
+                            &#9632; Make payment <br />
+                            &#9632; Report view  with in two working days <br />
+                            &#9632;For Features overview please click on here
+                            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal2">More</button>
+                        </p>
+                        <div class="container">
+
+                            <!-- Trigger the modal with a button -->
+                            @*<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal2">More</button>*@
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal2" role="dialog">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal2">&times;</button>
+                                            <h4 class="modal-title" style="background-color:red;color:white">Inclusion</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p style="text-align: justify; font-size: 14px;width:300px">
+                                                &#9632; Overall based probable causes <br />
+                                                &#9632; Download the files in PDF or WORD format<br />
+                                                &#9632; Overall value with spectrum optional<br />
+                                                &#9632; Most definite causes will be explained optional<br />
+                                                &#9632; Alarm value indicated <br />
+                                                &#9632; Overall  spectrum and alarm indication with optional<br />
+                                                &#9632; Definite causes will be included <br />
+                                                &#9632; Find report with in clusion of execution optinal <br />
+                                                &#9632; Summary can be provided<br />
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" style="background-color:red;color:white">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="/UploadDownload/ClientDtl" class="btn btn-primary">BUY NOW</a>
+                        @* <a style="margin-left:20px;margin-bottom:20px;color:blue;" id="btnUploadManual1" class="btn btn-default"> @Html.ActionLink("Buy Now", "ClientDtl", "UploadDownload")</a>*@
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="staggered-animation-container features">
+        <div class="col-md-12" style="background: linear-gradient(to bottom,white  0%, white 100%); ">
+            <div class="container">
+                <div class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.s" style="animation-delay: 0.1s;">
+                    <div class="jumbotron">
+                        <h2 style="text-align:center;color:black">WHY CHOOSE VIBEXCHANGE</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h3 style="color:black"> The Platform </h3>
+                            <p class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="15s" style="animation-delay: 0.10s;text-align: justify; color: black">IT IS HERE AND EVERYONE IS ONBOARD.The enqueries consultant, bussiness owners  you name  profile and they are there .Everyone is at home and we are hosting everyone here...</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h3 style="color:black">Success On Cloud</h3>
+                            <p class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="15s" style="animation-delay: 0.10s;text-align: justify; color: black">Analysis via unique Cloud based technology. Aligned with IoT environment & available in SaaS mode.If allow ON DEMAND results at fractions of cost...</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h3 style="color:black"> Trusted Knowledge Pool</h3>
+                            <p class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="15s" style="animation-delay: 0.10s;text-align: justify; color: black">Using a graded knowledge pool of ONBoard experts and our own in house team, We are most dependable resource to ensure optimum quality of analysis.You get what you Choose for at value for money levels....</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="col-md-12" style="background: linear-gradient(to bottom, white 0%, white 100%); ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h3 style="color:black">Innovating & Evolving</h3>
+                        <p class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.10s" style="animation-delay: 0.10s;text-align: justify; color: black">We are always  and striving to  bring new innovations and strategies for implementation of live projects.One can be ONBoard this process ,just by registering on with us...</p>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <h3 style="color:black">Hardware Neutrality</h3>
+                        <p class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.10s" style="animation-delay: 0.10s;text-align: justify; color: black"> Vibration data from  devices and applications is acceptable Variety of analysis is simple  &  battery of concepts to help. everyone in analysing data are available on single plateform...</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3 style="color:black">Peace Of Mind</h3>
+                        <p class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.10s" style="animation-delay: 0.10s;text-align: justify; color: black">
+                            Forget logistics delays,
+                            Forget hurdless caused by delay,
+                            Forget cost of inhouse knowledge base,
+                            Forget worries caused by attrition,
+                            Forget costly contracts. feel the satisfaction
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="col-md-12" style="background: linear-gradient(to bottom, #FFFDE7 0%, #FFC107);">
+            <div class="container">
+                <h2 style="text-align:center">FAQ'S</h2>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">How to register VibExchange as a client? </a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                Register yourself with your user name and password.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">How to use VibExchange as a consultant?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                &#9632; Register  yourself with your username and password.<br />
+                                &#9632; Consultant can see the enquiries (projects for vibration analysis) with details uploaded by customers to us on our enruiry page<br />
+                                &#9632; Choose any project according to your expertise or choice.<br />
+                                &#9632; Make payment as required.<br />
+                                &#9632; After Payment we will acknowledge you with  your uploaded data and payment details.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">What all instruments are compatible with VibExchange?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                &#9632; Currently we can handle all the data from SKF,Rockwell,other OEMs of SKF ,Benstone and kohtect data collectors.<br />
+                                &#9632; We can also accept UFF ,csv and wav files and these can also be analyzed anytime.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Can i access live demo?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                You can access live demo and representative reports on the portal.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">What are the modes of payment?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                Rates of each kind of analysis are available on the portal in INR. your bank or CC/DC will be debited in INR
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Ask any question?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                info@vibration-services.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section style="background-color:#fff">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12 mx-auto">
+                    <h2 class="brand-sub-heading txtcenter txttransform-none"> SATISFIED PARTNERS</h2>
+                    <marquee behavior="scroll" direction="left" scrollamount="8" class="our-partners">
+                        <img src="~/images/download1.JPEG " />
+                        <img src="~/images/download(2).JPEG " />
+                        <img src="~/images/download(4).JPEG" />
+                        <img src="~/images/download(6).JPEG " />
+                        <img src="~/images/download(8).JPEG " />
+                        <img src="~/images/download7.JPEG " />
+                        <img src="~/images/download(3).jpeg" />
+
+                    </marquee>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="Experts">
+        <div class="col-md-12">
+            <div class="container">
+
+                @*<div class="footcontact col-md-3 col-lg-3 noindex">*@
+                <div class="col-sm-4">
+                    <h3 class="f_head" style="margin-left:10px;color:white;background-color:black;border-bottom:none">Post your Requirment</h3>
+
+                    <form action="/Contact/Contacts" class="form-horizontal" method="post" role="form" novalidate="novalidate">
+                        <input name="__RequestVerificationToken" type="hidden" value="g-cY66tL2t9xgRVeMUXA5uikyjPjCs2yUz_CS3q-rjGe0jvAz2u6Q5iTnQhJmfBZWfQXUe4Ey7zdo9cgYldcUjLbTpOgED64tZ0DfoPi0pY1">
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                <input class="form-control" data-val="true" data-val-required="The Your Name field is required." id="Name" name="Name" type="text" value="" placeholder="NAME" style="height: 25px; width: 70%; ">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                <input class="form-control" data-val="true" data-val-email="The Email Address field is not a valid e-mail address." data-val-required="The Email Address field is required." id="Email" name="Email" type="text" value="" placeholder="EMAIL-ID" style="height:25px;width:70%">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                <input class="form-control" data-val="true" data-val-required="The Phone Number field is required." id="Phone" name="Phone" onkeypress="return isNumberKey(event)" type="text" value="" placeholder="WORK-PHONE" style="height: 25px; width: 70%; ">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Phone" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                <input class="form-control" data-val="true" data-val-required="The Subject field is required." id="Subject" name="Subject" type="text" value="" placeholder="SUBJECT" style="height: 25px; width: 70%; ">
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                <textarea class="form-control" cols="25" data-val="true" data-val-required="The Message field is required." id="Message" name="Message" rows="5" placeholder="MESSAGE" style="height: 25px; width: 70%; "></textarea>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Message" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Submit Requirment" class="btn btn-primary btn-xs">
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+                @*<div class="footcontact noindex col-md-3 col-lg-3">*@
+                <div class="col-sm-4">
+                    <h3 class="f_head" style="margin-left:49px;color:white;border-bottom:none">Home</h3>
+                    <ul>
+                        <li class="contactdetails">
+                            <a href="#" style="color:white">Vibration User</a>
+                        </li>
+                        <li class="contactdetails" style="color:white;background-color:black">
+                            <a href="#" style="color:white">Vibration Expert</a>
+                        </li>
+                        <li class="contactdetails"><a href="/Services/ServiceDetail" style="color:white">Services</a></li>
+                        <li class="contactdetails"><a href="/Home/Home#" style="color:white">Ask any question?</a></li>
+                        <!-- <li class="contactdetails"><a href="/shareholders-corner/annual-reports">Financial Results</a></li> -->
+                        <!--  <li class="contactdetails"><a href="/about-us/promoters" sfref="[f669d9a7-009d-4d83-ddaa-000000000002]19e89fb9-be57-6bf0-8df9-ff00000b8c1c">Promoters</a></li>  -->
+                        <li class="contactdetails"><a href="http://www.vibration-service.com/Contact/GetJobs" style="color:white"> Join Us</a></li>
+                        <li class="contactdetails"><a href="/UploadDownload/GetReport/Indicative%20Analysis1" style="color:white" title="Indicative Analysis1" target="blank">Privacy Policy</</a></li>
+                        <!-- <li class="contactdetails"><a href="javascript:void(0)">Investor Contacts</a></li>//Already commented-->
+
+                    </ul>
+                </div>
+                @*<div class="footcontact noindex col-md-2 col-lg-2">*@
+                @*<div class="col-sm-3">
+
+                        <h3 class="f_head" style="color:white;border-bottom:none">Support</h3>
+                        <ul>
+                            <li class="contactdetails">
+                                <a href="www.vibration-service.com" style="color:white"> info@vibration-services.com</a>
+
+                            </li>
+                            <!--<li class="contactdetails"><a href="/products/cards/ccard/useful-links/card-protection#lossofcard">Report Loss of Card</a></li>-->
+
+                            <li class="contactdetails">
+                                <a href="www.vibration-service.com" Style="color:white">support@vibration-service.com></a>
+                            </li>
+                            <!--   <li class="contactdetails"><a href="/about-us/events/notices" sfref="[f669d9a7-009d-4d83-ddaa-000000000002]4898a0b9-be57-6bf0-8df9-ff00000b8c1c">Notices</a></li> -->
+                        </ul>
+                    </div>*@
+
+                @*<div class="noindex col-md-2 col-lg-2 foot_5th no-padding"></div>*@
+                <div class="col-sm-4">
+                    <h3 class="f_head" style="color:white;background-color:black;border-bottom:none">Follow Us On</h3>
+
+
+                    <a href="https://www.facebook.com/VibrationAnalysisService/" class="fa fa-facebook " style="color: white; background: #3B5998; font-size: 30px; width: 80px; text-align: center; border-radius: 90%; margin: 5px 2px; opacity: 0.9; "></a><br />
+
+                    <a href="http://www.linkedin.com/company/vibexchange" class="fa fa-linkedin" style="color: white; background: #007bb5; font-size: 30px; width: 80px; text-align: center; border-radius: 90%; margin: 5px 2px; opacity: 0.9; "></a>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+<div id='myModal' class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Put Your Enquiry here ...
+                <button type="button" style="padding-right: 1%; padding-top: 1%; color: red;" class="close" data-dismiss="modal" onclick="closeModal()">Close</button>
+            </div>
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#main").show();
+        $("#customerSection").hide();
+        $("#consultantSection").hide();
+    });
+    function gotoHome() {
+        $("#main").show();
+        $("#customerSection").hide();
+        $("#consultantSection").hide();
+    }
+    function gotoCustomer() {
+        $("#main").hide();
+        $("#customerSection").show();
+        $("#consultantSection").hide();
+    }
+    function gotoConsultant() {
+        $("#main").hide();
+        $("#customerSection").hide();
+        $("#consultantSection").show();
+    }
+    function closeModal() {
+        $("#myModal").toggle();
+    }
+
+    //var numChecked = $('#TermsAndConditions').find('input:checked').length;
+    //if (numChecked === 0) {
+    //    alert('Please accept term and condition');
+    //}
+
+</script>
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-81671504-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<script>
+    function remoteAnalysis() {
+        alert("Remote Analysis is in testing phase and coming soon ! You can use other two methods.");
+    };
+</script>
+<script type='text/javascript'>
+    var employeeId = e.target.id;
+    var flag = confirm('Transaction failed. Please try again !');
+    if (flag) {
+        $.ajax({
+            url: '/Clients/ClientList',
+            type: 'POST',
+            data: { id: employeeId },
+            dataType: 'ActionResult',
+            success: function (result) { alert(result); }
+        });
+    }
+</script>
+
+
+
+

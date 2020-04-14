@@ -1,0 +1,7 @@
+Internal server error is coming for both client and customer
+
+"Please upload file" message is coming for a few secs only
+
+If any field is left out empty while filling machine details, error message is displayed only for a fraction of a second, and then internal server error comes again.
+
+

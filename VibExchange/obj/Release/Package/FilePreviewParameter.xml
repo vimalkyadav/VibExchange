@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="vibration-service" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\rohit_000\\Desktop\\New\ folder\ \(25\)\\VibExchange\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\rohit_000\\Desktop\\New\ folder\ \(25\)\\VibExchange\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="ConnectionString-Web.config Connection String" description="" value="Data Source=databasesrv.database.windows.net;Initial Catalog=VibExchange;User ID=iadeptadmin;Password=Iadept321?" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\rohit_000\\Desktop\\New\ folder\ \(25\)\\VibExchange\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

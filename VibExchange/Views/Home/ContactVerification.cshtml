@@ -1,0 +1,50 @@
+﻿
+@*@{
+    ViewBag.Title = "ContactVerification";
+    Layout = "~/Views/Shared/_VibExchangeLayout.cshtml";
+}
+@model VibExchange.Models.UserRegisterViewModel
+<h2>ContactVerification</h2>
+
+@{
+    ViewBag.Title = "ContactVerification";
+    // Layout = null;
+}
+<div class="form-group">
+    @Html.LabelFor(model => model.uMobile, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.TextBoxFor(model => model.uMobile, new { @class = "form-control", onkeypress = "return isNumberKey(event)" })
+        @Html.ValidationMessageFor(model => model.uMobile, "", new { @class = "text-danger" })
+    </div>
+</div>
+<div class="well">
+
+    <a href="#" class="btn btn-success" onclick="SendOTP()">Send OTP</a>
+    <a href="#" onclick="VerifyOTP()" class="btn-btn-primary">Okay</a> 
+</div>
+
+<script>
+
+
+    var SendOTP = function () {
+
+        $.ajax({
+            url: "/Home/SendOTP",
+            type: "post",
+            success: function (data) {
+                if (data == "success") {
+
+                    alert("OTP sent successfully");
+                    window.location = "/Home/EnterOTP";
+                }
+                else {
+                    alert("failed");
+                }
+            }
+
+
+        })
+
+    }
+
+</script>*@

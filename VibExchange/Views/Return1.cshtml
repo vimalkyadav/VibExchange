@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Return1";
+    Layout = "~/Views/Shared/_VibExchangeLayout.cshtml";
+}
+<h2>PayUMoney Response</h2>
+
+<h1> ViewData["Message"]</h1>
+<script type="text/javascript">
+    $.getJSON('/Order/SomeAction', function (json) {
+        alert(json.Message);
+    });
+</script>

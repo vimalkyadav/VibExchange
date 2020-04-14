@@ -1,0 +1,75 @@
+﻿@model IEnumerable<VibExchange.Models.UserRegisterViewModel>
+
+@{
+    ViewBag.Title = "Alluser";
+
+    Layout = null;
+
+    WebGrid webGrid = new WebGrid(Model, canPage: true, rowsPerPage: 100, selectionFieldName: "selectedRow", ajaxUpdateContainerId: "gridContent");
+    webGrid.Pager(WebGridPagerModes.All);
+
+}
+
+<style type="text/css">
+    body {
+        font-family: Arial;
+        font-size: 10pt;
+    }
+
+    .Grid {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+        .Grid th {
+            background-color: #F7F7F7;
+            font-weight: bold;
+        }
+
+        .Grid th, .Grid td {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .Grid, .Grid table td {
+            border: 0px solid #ccc;
+        }
+
+            .Grid th a, .Grid th a:visited {
+                color: #333;
+            }
+</style>
+<div>
+    @webGrid.GetHtml(
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+                                webGrid.Column("uName", "uName"),
+                                webGrid.Column("UserName", "UserName"),
+                                webGrid.Column("Email", "Email"),
+                                webGrid.Column("uCompany", "uCompany"),
+                                webGrid.Column("uMobile", "uMobile"),
+                                webGrid.Column("CreateDate", "CreateDate"),
+                                webGrid.Column("UserRole", "UserRole"),
+         webGrid.Column(header: "Action", format: @<text>@Html.ActionLink("Select", null, null, new { @onclick = "return GetSelectedRow(this);" })</text>)
+
+                                            ))
+</div>
+<script type="text/javascript">
+    function GetSelectedRow(link) {
+        //    var row = link.parentNode.parentNode;
+        //    var message = "Selected Row:";
+        //    message += "\n\nuName: " + row.getElementsByTagName("TD")[0].innerHTML;
+        //    message += "\n User Name: " + row.getElementsByTagName("TD")[1].innerHTML;
+        //    message += "\n Password: " + row.getElementsByTagName("TD")[2].innerHTML;
+        //    message += "\n Email ID: " + row.getElementsByTagName("TD")[3].innerHTML;
+        //    message += "\n uCompany: " + row.getElementsByTagName("TD")[4].innerHTML;
+        //    message += "\n uCompanyAddress: " + row.getElementsByTagName("TD")[5].innerHTML;
+        //    message += "\n Country: " + row.getElementsByTagName("TD")[6].innerHTML;
+        //    message += "\n State: " + row.getElementsByTagName("TD")[7].innerHTML;
+        //    message += "\n Fax No: " + row.getElementsByTagName("TD")[8].innerHTML;
+        //    message += "\n Contact No: " + row.getElementsByTagName("TD")[9].innerHTML;
+        //    message += "\n Company Website: " + row.getElementsByTagName("TD")[10].innerHTML;
+        //    alert(message);
+        //    return false;
+    }
+</script>

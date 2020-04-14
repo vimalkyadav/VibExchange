@@ -1,0 +1,132 @@
+﻿@model VibExchange.Areas.RemoteAnalysis.Models.Unit
+
+@using (Html.BeginForm("AddPlant", "Plant", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+        <div class="form-group">
+            <input id="PlantID" type="hidden" value="@Model.UnitID" />
+        </div>
+        <section class="col-md-offset-1">
+            <div class="form-group">
+
+                @Html.RequiredLabelFor(model => model.UnitType, htmlAttributes: new { @class = "col-md-3 control-lable" })
+                <div class="col-md-7">
+                    @Html.DropDownList("UnitType", new List<SelectListItem>{
+                    new SelectListItem{ Text="Acceleration", Value = "Acceleration" },
+                     new SelectListItem{ Text="Velocity", Value = "Velocity" },
+                      new SelectListItem{ Text="Displacement", Value = "Displacement" },
+                 }, "Select parameter", new { @class = "form-control" })
+
+                  
+                    @*@Html.DropDownListFor(model => model.UnitType, new SelectList(ViewBag.lastUnit, "UniteType", "UniteType"), "Select Parameter ", new { @class = "form-control ", @onchange = "getUnitDetails()", @style = "margin-right:20px;" })*@
+
+                    @Html.ValidationMessageFor(model => model.UnitType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.RequiredLabelFor(model => model.UnitName, htmlAttributes: new { @class = "control-label col-md-3 align-right" })
+                <div class="col-md-7">
+                    @Html.DropDownListFor(m => m.UnitName,
+       new SelectList(Enumerable.Empty<SelectListItem>(), "UnitID", "Unit"),
+              "Select Unit",
+              new { @class = "form-control" })
+
+                    @*@Html.DropDownListFor(model => model.UnitID, Enumerable.Empty<SelectListItem>(), "Please select model", new { @class = "form-control " })*@
+
+                  
+                    @Html.ValidationMessageFor(m => m.UnitName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div>
+                <div class="form-group">
+                    @*<input type="button" value="Save Data" id="btnAddFF" class="btn-sm btn-info col-md-offset-3" />*@
+                    <button id="btnXunit" class="btn-sm btn-info col-md-offset-3" value="Channel 1" onclick="ShowGraphtest()">Show Graph</button>
+                </div>
+            </div>
+        </section>
+      
+    </div>
+}
+
+
+<script>
+    $("#UnitType").change(function () {
+        
+
+        var type = this.value;
+      // alert(type);
+        //alert("Sanjay");
+        getUnitList(type);
+    });
+   
+    function getUnitList(type) {
+       // alert(type);
+      
+        var uid = $('#UnitType').val()
+        //alert(uid);
+
+        $.ajax
+        ({
+            url: "@Url.Action("GetUnitByType", "Upload", new { area = "RemoteAnalysis" })",
+            type: 'POST',
+            data: JSON.stringify({ unitType: type }),
+            dataType: "JSON",
+            contentType: 'application/json',
+            
+            success: function (data) {
+                //$("#UnitName").html("");
+
+                //var optionhtml1 = '<option value="' + 0 + '">' + "Please select Unit" + '</option>';
+                //$("#UnitName").append(optionhtml1);
+                //$.each(result, function (i, item) {
+                //    var optionhtml = '<option value="' + item.unitType + '">' +item.unitType + '</option>';
+                //    $("#UnitName").append(optionhtml);
+                //});
+
+                $("#UnitName").html(""); // clear before appending new list
+                var optionhtml1 = '<option value="' + 0 + '">' + "Please select model" + '</option>';
+                $("#BearingNumber").append(optionhtml1);
+                $.each(data, function (i, item) {
+                    var optionhtml = '<option value="' + item.UnitID + '">' + item.UnitName + '</option>';
+                    $("#UnitName").append(optionhtml);
+                });
+
+
+                //$.each($.parseJSON(result), function (i, city) {
+                //    $("#UnitName").append
+                //    ($('<option></option>').val(city.UnitName).text(city.UnitName))
+                //})
+            },
+            error: function () {
+                alert("Ooops! Something went wrong..")
+            },
+        });
+    }
+
+    $('#UnitName').change(function () {
+        var uname = this.value;
+       
+        alert(uname)
+
+       
+        ShowGraphtest(nodeid)
+    })
+    
+    function ShowGraphtest(nodeid) {
+        $.ajax({
+            url: "@Url.Action("DisplayGraphxUnit", "Upload", new { area = "RemoteAnalysis" })",
+            type: 'POST',
+        data: { 'nodeid': String(nodeid) },
+        success: function (data) {
+            $('#detailDisplay').html('');
+            $('#detailDisplay').html(data);
+        }
+    });
+    }
+
+</script>

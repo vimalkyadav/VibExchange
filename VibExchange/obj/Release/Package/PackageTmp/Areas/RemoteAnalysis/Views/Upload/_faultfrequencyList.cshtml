@@ -1,0 +1,93 @@
+﻿@model IEnumerable<VibExchange.Areas.RemoteAnalysis.Models.FaultFrequency>
+
+@{var webGrid = new WebGrid(source: Model, ajaxUpdateContainerId: "faultfrequencyGrid", canPage: true, rowsPerPage: 50);
+webGrid.Pager(WebGridPagerModes.All);
+}
+<style type="text/css">
+    .Grid {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+        .Grid th {
+            background-color: #F7F7F7;
+            font-weight: bold;
+        }
+
+        .Grid th, .Grid td {
+            padding: 5px;
+            width: 110px;
+            border: 1px solid #ccc;
+        }
+
+        .Grid, .Grid table td {
+            border: 0px solid #ccc;
+        }
+
+            .Grid th a, .Grid th a:visited {
+                color: #333;
+            }
+
+    .label {
+        color: black;
+    }
+</style>
+<div class="row-fluid">
+    <div class="row-fluid">
+        <button type="button" id="btnAddFaultFrequency" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">
+            Add Fault Frequency
+        </button>
+    </div>
+    <div id="grdBearing">
+        @webGrid.GetHtml(
+                     htmlAttributes: new { @id = "gridFaultFrequency", @class = "Grid" },
+            columns: webGrid.Columns(
+                     webGrid.Column(header: "Id", format: @<span class="label">@item.FaultFreqID</span>, style: "FaultFreqID" ),
+
+                                       webGrid.Column(header: "FaultFreqName", format: @<span>
+            <span class="label">@item.FaultFreqName</span>
+            <input class="text" type="text" value="@item.FaultFreqName" style="display:none" />
+        </span>, style: "FaultFreqName"),
+
+                                                 webGrid.Column(header: "FaultFreqValue", format: @<span>
+            <span class="label">@item.FaultFreqValue</span>
+            <input class="text" type="text" value="@item.FaultFreqValue" style="display:none" />
+        </span>, style: "FaultFreqValue"),
+
+                     webGrid.Column(format:@<span class="link"><a class="Delete" href="javascript:;">Delete</a></span>)
+            ))
+    </div>
+</div>
+<script type="text/javascript">
+    //Delete event handler.
+    $("#grdBearing").on("click", "#gridFaultFrequency TBODY .Delete", function () {
+        if (confirm("Do you want to delete this frequency?")) {
+            debugger
+            var row = $(this).closest("tr");
+            var ffId = row.find(".label").html();
+            var PointId = $("#PointID").val();
+            $.ajax({
+                type: "POST",
+                url: "/RemoteAnalysis/Upload/DeleteFaultFrequency",
+                data: '{frequencyID: ' + ffId +'}',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response == "Success")
+                    {
+                        row.remove();
+                    }
+                    else { alert("Not removed please try again !"); }
+                    //if ($("#gridFaultFrequency TBODY tr").length == 1) {
+                    //    row.find(".label").html("");
+                    //    row.find(".text").val("");
+                    //    row.find(".link").hide();
+                    //} else {
+                    //    row.remove();
+
+                    //}
+                }
+            });
+        }
+    });
+</script>

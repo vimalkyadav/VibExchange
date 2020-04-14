@@ -1,0 +1,197 @@
+﻿@model VibExchange.Models.UserPlans
+
+@{
+    ViewBag.Title = "ClientDtl";
+    Layout = "~/Views/Shared/_VibExchangeLayout.cshtml";
+}
+
+<div class="container row-fluid">
+    @using (Html.BeginForm())
+    {
+        @*@Html.AntiForgeryToken()*@
+
+        <div class="form-horizontal">
+            <h2>Please Enter Your detail. </h2>
+
+
+            @Html.ValidationSummary(true)
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NoOfPoints, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.NoOfPoints, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NoOfPoints)
+                </div>
+            </div>
+            <div class="form-group ">
+                @Html.LabelFor(model => model.AnalysisMethod, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownList("AnalysisType", new List<SelectListItem>{  new SelectListItem{ Text="Indicative Analysis", Value = "Indicative Analysis" },
+                   //new SelectListItem{ Text="Remote Analysis", Value = "Remote" },
+                   new SelectListItem{ Text="Analytical", Value = "Analytical"}
+                 }, "Select Analysis Type ", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.AnalysisMethod, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Amount, new { @class = "control-label col-md-2", @readOnly = "True" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Amount, new { @class = "form-control", @readOnly = "True" })
+                    @Html.ValidationMessageFor(model => model.Amount)
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @*<div class="btn btn-default">
+                        <a onclick="Payment(20)" href="#">abcd</a>
+                    </div>*@ 
+                    <input type="submit" name="#payNowButton" value="BUY NOW" class="btn btn-default" />
+                    @*return "<a id='btnBuy' href='javascript:Payment(" + options.rowId + "," + primaryId + "," + options.gid + ")' style='color:blue; margin-left:5px;' title='Buy this Enquiry'><img src='@Url.Content("~/images/Buy.png")' alt='" + cellvalue + "' /></a>*@
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<section class="staggered-animation-container features">
+    <div class="col-md-12" style="background: linear-gradient(to bottom, #FFFDE7 0%, #FFC107)">
+        <div class="container" style="margin-top:0px">
+            <div class="jumbotron">
+                <div class="staggered-animation animated fadeInUp" data-os-animation="fadeInUp" data-os-animation-delay="0.12s" style="animation-delay: 0.2s;">
+                    <h2 style="text-align:center">WHAT WE CHARGE</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="pricing-menu basic" style="background-color:white;padding:10px;width:250px;">
+                            <h3 class="title" style="text-align-last:center">BASIC</h3>
+                            <h3 class="title" style="text-align-last:center">INR950/30 Days</h3>
+
+                            <ul>
+
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span>Indicative</span>
+                                </li>
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span>10 Points </span>
+                                </li>
+
+                            </ul>
+                            @*<a href="/Clients/Payment1?Amount=14" class="btn btn-default" style="margin-left:20%">BUY NOW</a>*@
+                           @* <a href="@Url.Action("Buy", "UploadDownload", new { PlanName = "BASIC" })">Buy Now</a>*@
+                            <a href="/UploadDownload/Buy?PlanName=BASIC"  class=" btn btn-default" style="margin-left:20%">BUY NOW</a>
+                           
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="pricing-menu basic" style="background-color: white; padding: 10px; width: 250px;">
+                            <h3 class="title" style="text-align-last:center">BASIC PRO</h3>
+                            <h3 class="title" style="text-align-last:center">INR5000/30 Days</h3>
+
+                            <ul>
+
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span>Analytical</span>
+                                </li>
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span> 10 Points </span>
+                                </li>
+
+                            </ul>
+                            @*<a href="/Clients/Payment1?Amount=14" class="btn btn-default" style="margin-left:20%">BUY NOW</a>*@
+                            @*<a href="@Url.Action("Buy", "UploadDownload", new { PlanName = "BASIC" })">Buy Now</a>*@
+                            <a href="/UploadDownload/Buy?PlanName=BASIC PRO" class="btn btn-default" style="margin-left:20%">BUY NOW</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="pricing-menu basic" style="background-color: white; padding: 10px; width: 250px; ">
+                            <h3 class="title" style="text-align-last:center">STANDARD</h3>
+                            <h3 class="title" style="text-align-last:center">INR3200/180 Days</h3>
+
+                            <ul>
+
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span>Indicative</span>
+
+                                </li>
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span>50 Points</span>
+                                </li>
+
+                            </ul>
+                            @*<a href="/Clients/Payment1?Amount=14" class="btn btn-default" style="margin-left:20%">BUY NOW</a>*@
+                           @* <a href="@Url.Action("Buy", "UploadDownload", new { PlanName = "BASIC" })">Buy Now</a>*@
+                            <a href="/UploadDownload/Buy?PlanName=STANDARD" class="btn btn-default" style="margin-left:20%">BUY NOW</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="pricing-menu basic" style="background-color: white; padding: 10px; width: 250px; ">
+                            <h3 class="title" style="text-align-last:center">STANDARD PRO</h3>
+                            <h3 class="title" style="text-align-last:center">INR23000/180 Days</h3>
+
+
+                            <ul>
+
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span>Analytical</span>
+
+                                </li>
+                                <li class="">
+                                    <i class="fa fa-check" aria-hidden="true">
+                                    </i>
+                                    <span>50 Points</span>
+                                </li>
+
+                            </ul>
+                            @*<a href="/Clients/Payment1?Amount=14" class="btn btn-default" style="margin-left:20%">BUY NOW</a>*@
+                            @*<a href="@Url.Action("Buy", "UploadDownload", new { PlanName = "BASIC" })">Buy Now</a>*@
+                            <a href="/UploadDownload/Buy?PlanName=STANDARD PRO" class="btn btn-default" style="margin-left:20%">BUY NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ 
+    <script type="text/javascript">
+        $(function () {
+            $("#AnalysisType").change(function () {
+                var amt = 0;
+                var method = $('option:selected', this).text();
+                var noofpoints = $('#NoOfPoints').val();
+                if (method == "Indicative Analysis") {
+                    amt = noofpoints * 140;
+                    $('#Amount').val(amt);
+                }
+                    //else if (method == "Remote Analysis") {
+                    //    amt = noofpoints * 500;
+                    //    $('#Amount').val(amt);
+                    //}
+                else if (method == "Analytical") {
+                    amt = noofpoints * 680;
+                    $('#Amount').val(amt);
+                }
+            });
+        });
+    </script>
+

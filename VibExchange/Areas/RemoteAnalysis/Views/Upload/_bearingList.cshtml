@@ -1,0 +1,97 @@
+﻿@model IEnumerable<VibExchange.Areas.RemoteAnalysis.Models.BearingData>
+
+@{var grid = new WebGrid(source: Model, ajaxUpdateContainerId: "bearingGrid", canPage: true, rowsPerPage: 10);
+  grid.Pager(WebGridPagerModes.All);
+}
+<style type="text/css">
+      .Grid {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+        .Grid th {
+            background-color: #F7F7F7;
+            font-weight: bold;
+        }
+
+        .Grid th, .Grid td {
+            padding: 5px;
+            width: 110px;
+            border: 1px solid #ccc;
+        }
+
+        .Grid, .Grid table td {
+            border: 0px solid #ccc;
+        }
+
+            .Grid th a, .Grid th a:visited {
+                color: #333;
+            }
+    .label {
+        color: black;
+    }
+</style>
+
+<div class="row-fluid">
+    <div class="row-fluid">
+        <button type="button" id="btnAddBearingFrequency" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal" style="vertical-align: text-bottom; padding-bottom:5px;">
+            Add Bearing Frequency
+        </button>    
+    </div>
+    <div id="gridBearingFrequency" class="row-fluid" style="font-family: Calibri;">
+        @grid.GetHtml(tableStyle: "table table-bordered",
+                      headerStyle: "webgrid-header",
+                      footerStyle: "webgrid-footer",
+                      alternatingRowStyle: "webgrid-alternating-row",
+                      selectedRowStyle: "webgrid-selected-row",
+                      rowStyle: "webgrid-row-style",
+                columns: grid.Columns(
+                                           grid.Column("BearingID", format: (item) => item.BearingID),
+                                           grid.Column(columnName: "BearingMake", header: "Make"),
+                                                    grid.Column(columnName: "BearingNumber", header: "Number"),
+                                                              grid.Column(columnName: "Balls", header: "Balls"),
+                                                                      grid.Column(columnName: "FTF", header: "FTF"),
+                                                                                 grid.Column(columnName: "BSF", header: "BSF"),
+                                                                      grid.Column(columnName: "BPFO", header: "BPFO"),
+                                                                                         grid.Column(columnName: "BPFI", header: "BPFI")
+                @*grid.Column("Action",
+                    style: "col1",
+                    format: @<text><div>
+                            @Html.ActionLink("Delete", "DeleteBearingData", "Upload", new { area = "RemoteAnalysis", id = item.BearingID })
+                        </div>
+                    </text>)*@
+        ))
+    </div>
+    @*<div id="grdBearing">
+        @webGrid.GetHtml(
+                 htmlAttributes: new { @id = "gridBearingFrequency", @class = "Grid" },
+        columns: webGrid.Columns(
+                 webGrid.Column(header: "Bearing Id", format: @<span class="label">@item.BearingID</span>, style: "BearingID" ),
+        
+                 webGrid.Column(header: "BearingMake", format: @<span> <span class="label">@item.BearingMake</span>
+                 <input class="text" type="text" value="@item.BearingMake" style="display:none" /></span>, style: "BearingMake"),
+
+                           webGrid.Column(header: "BearingNumber", format: @<span> <span class="label">@item.BearingNumber</span>
+                 <input class="text" type="text" value="@item.BearingNumber" style="display:none" /></span>, style: "BearingNumber"),
+        
+                 webGrid.Column(header: "Balls", format: @<span><span class="label">@item.Balls</span>
+                 <input class="text" type="text" value="@item.Balls" style="display:none" /></span>, style: "Balls"),
+        
+                 webGrid.Column(header: "FTF", format: @<span><span class="label">@item.FTF</span>
+                 <input class="text" type="text" value="@item.FTF" style="display:none" /></span>, style: "FTF"),
+
+                 webGrid.Column(header: "BSF", format: @<span><span class="label">@item.BSF</span>
+                 <input class="text" type="text" value="@item.BSF" style="display:none" /></span>, style: "BSF"),
+
+                 webGrid.Column(header: "BPFO", format: @<span><span class="label">@item.BPFO</span>
+                 <input class="text" type="text" value="@item.BPFO" style="display:none" /></span>, style: "BPFO"),
+
+                 webGrid.Column(header: "BPFI", format: @<span><span class="label">@item.BPFI</span>
+                 <input class="text" type="text" value="@item.BPFI" style="display:none" /></span>, style: "BPFI")
+        
+                 //webGrid.Column(format:@<span class="link"><a class="Delete" href="javascript:;">Delete</a></span>)
+        ))
+    </div>*@
+</div>
+
+
